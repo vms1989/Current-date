@@ -1,0 +1,458 @@
+<?php
+
+/**
+*Implements hook_block_info().
+*/
+function current_date_block_info() {
+  $blocks['current_date'] = array(
+    'info' => t('Current Date'),
+  );
+  return $blocks;
+}
+
+/**
+*Implements hook_block_view().
+*/
+function current_date_block_view($delta = '') {
+
+  // This example is adapted from node.module.
+  $block = array();
+  switch ($delta) {
+    case 'current_date':
+      $block['content'] = current_date_block();
+      break;
+  }
+  return $block;
+}
+
+/**
+* Implements hook_theme().
+*/
+function current_date_theme($existing, $type, $theme, $path) {
+  return array(
+    'current_date_function' => array(
+      'variables' => array(
+        'current_date' => NULL,
+        'day' => NULL,
+        'nameday' => NULL,
+      ),
+    ),
+    'current_date_template' => array(
+      'variables' => array(
+        'current_date' => NULL,
+        'day' => NULL,
+        'nameday' => NULL,
+      ),
+      'template' => 'current_date_template',
+    ),
+  );
+}
+
+/**
+* Callback function
+*/
+function current_date_block() {
+  $day = date("l");
+  $nameday = date("j.n");
+
+  switch($day) {
+    case "Monday": $day = "Maanantai";
+    break;
+    case "Tuesday": $day = "Tiistai";
+    break;
+    case "Wednesday": $day = "Keskiviikko";
+    break;
+    case "Thursday": $day = "Torstai";
+    break;
+    case "Friday": $day = "Perjantai";
+    break;
+    case "Saturday": $day = "Lauantai";
+    break;
+    case "Sunday": $day = "Sunnuntai";
+    break;
+
+    return $day;
+  }
+
+  switch($nameday) {
+    case "1.7": $nameday = "Aaro, Aaron";
+    break;
+    case "2.7": $nameday = "Maria, Maija, Mari, Meeri";
+    break;
+    case "3.7": $nameday = "Arvo";
+    break;
+    case "4.7": $nameday = "Ulla, Ulpu";
+    break;
+    case "5.7": $nameday = "Unto, Untamo";
+    break;
+    case "6.7": $nameday = "Esa, Esaias";
+    break;
+    case "7.7": $nameday = "Klaus, Launo";
+    break;
+    case "8.7": $nameday = "Turo, Turkka";
+    break;
+    case "9.7": $nameday = "Jasmin, Ilta";
+    break;
+    case "10.7": $nameday = "Saima, Saimi";
+    break;
+    case "11.7": $nameday = "Elli, Noora, Nelli";
+    break;
+    case "12.7": $nameday = "Hermanni, Herkko, Herman";
+    break;
+    case "13.7": $nameday = "Joel, Ilari, Lari";
+    break;
+    case "14.7": $nameday = "Aliisa, Alisa";
+    break;
+    case "15.7": $nameday = "Rauni, Rauna";
+    break;
+    case "16.7": $nameday = "Reino";
+    break;
+    case "17.7": $nameday = "Ossi, Ossian";
+    break;
+    case "18.7": $nameday = "Riikka";
+    break;
+    case "19.7": $nameday = "Sari, Saara, Sara, Salla";
+    break;
+    case "20.7": $nameday = "Marketta, Maarit, Reetta";
+    break;
+    case "21.7": $nameday = "Johanna, Hanna, Jenni";
+    break;
+    case "22.7": $nameday = "Leena, Matleena, Leeni";
+    break;
+    case "23.7": $nameday = "Olga, Oili";
+    break;
+    case "24.7": $nameday = "Kristiina, Tiina, Kirsti";
+    break;
+    case "25.7": $nameday = "Jaakko, Jaakob";
+    break;
+    case "26.7": $nameday = "Martta";
+    break;
+    case "27.7": $nameday = "Heidi";
+    break;
+    case "28.7": $nameday = "Atso";
+    break;
+    case "29.7": $nameday = "Olavi, Olli, Uolevi";
+    break;
+    case "30.7": $nameday = "Asta";
+    break;
+    case "31.7": $nameday = "Helena, Elena";
+    break;
+    case "1.8": $nameday = "Maire";
+    break;
+    case "2.8": $nameday = "Kimmo";
+    break;
+    case "3.8": $nameday = "Nea, Linnea, Neea, Vanamo";
+    break;
+    case "4.8": $nameday = "Veera";
+    break;
+    case "5.8": $nameday = "Salme, Sanelma";
+    break;
+    case "6.8": $nameday = "Toimi, Keimo";
+    break;
+    case "7.8": $nameday = "Lahja";
+    break;
+    case "8.8": $nameday = "Sylvi, Sylvia, Silva";
+    break;
+    case "9.8": $nameday = "Erja, Eira";
+    break;
+    case "10.8": $nameday = "Lauri, Lasse, Lassi";
+    break;
+    case "11.8": $nameday = "Sanna, Susanna, Sanni, Susanne";
+    break;
+    case "12.8": $nameday = "Klaara";
+    break;
+    case "13.8": $nameday = "Jesse";
+    break;
+    case "14.8": $nameday = "Onerva, Kanerva";
+    break;
+    case "15.8": $nameday = "Marjatta, Marja, Jaana, Marjo";
+    break;
+    case "16.8": $nameday = "Aulis";
+    break;
+    case "17.8": $nameday = "Verneri";
+    break;
+    case "18.8": $nameday = "Leevi";
+    break;
+    case "19.8": $nameday = "Mauno, Maunu";
+    break;
+    case "20.8": $nameday = "Sami, Samuli, Samu, Samuel";
+    break;
+    case "21.8": $nameday = "Soini, Veini";
+    break;
+    case "22.8": $nameday = "Iivari, Iivo";
+    break;
+    case "23.8": $nameday = "Signe, Varma";
+    break;
+    case "24.8": $nameday = "Perttu";
+    break;
+    case "25.8": $nameday = "Loviisa";
+    break;
+    case "26.8": $nameday = "Ilmi, Ilma, Ilmatar";
+    break;
+    case "27.8": $nameday = "Rauli";
+    break;
+    case "28.8": $nameday = "Tauno";
+    break;
+    case "29.8": $nameday = "Iina, Iines, Inari";
+    break;
+    case "30.8": $nameday = "Eemil, Eemeli";
+    break;
+    case "31.8": $nameday = "Arvi";
+    break;
+    case "1.9": $nameday = "Pirkka";
+    break;
+    case "2.9": $nameday = "Sinikka, Sini";
+    break;
+    case "3.9": $nameday = "Soile, Soili, Soila";
+    break;
+    case "4.9": $nameday = "Ansa";
+    break;
+    case "5.9": $nameday = "Roni, Mainio";
+    break;
+    case "6.9": $nameday = "Asko";
+    break;
+    case "7.9": $nameday = "Miro, Arho, Arhippa";
+    break;
+    case "8.9": $nameday = "Taimi";
+    break;
+    case "9.9": $nameday = "Eevert, Isto";
+    break;
+    case "10.9": $nameday = "Kalevi, Kaleva";
+    break;
+    case "11.9": $nameday = "Santeri, Aleksanteri, Aleksandra";
+    break;
+    case "12.9": $nameday = "Valma, Vilja";
+    break;
+    case "13.9": $nameday = "Orvo";
+    break;
+    case "14.9": $nameday = "Iida";
+    break;
+    case "15.9": $nameday = "Sirpa";
+    break;
+    case "16.9": $nameday = "Hilla, Hellevi, Hillevi, Hille";
+    break;
+    case "17.9": $nameday = "Aili, Aila";
+    break;
+    case "18.9": $nameday = "Tyyne, Tytti, Tyyni";
+    break;
+    case "19.9": $nameday = "Reija";
+    break;
+    case "20.9": $nameday = "Varpu, Vaula";
+    break;
+    case "21.9": $nameday = "Mervi";
+    break;
+    case "22.9": $nameday = "Mauri";
+    break;
+    case "23.9": $nameday = "Mielikki";
+    break;
+    case "24.9": $nameday = "Alvar, Auno";
+    break;
+    case "25.9": $nameday = "Kullervo";
+    break;
+    case "26.9": $nameday = "Kuisma";
+    break;
+    case "27.9": $nameday = "Vesa";
+    break;
+    case "28.9": $nameday = "Arja";
+    break;
+    case "29.9": $nameday = "Mikko, Mika, Mikael, Miika";
+    break;
+    case "30.9": $nameday = "Sirja, Sorja";
+    break;
+    case "1.10": $nameday = "Rauno, Rainer, Raine, Raino";
+    break;
+    case "2.10": $nameday = "Valio";
+    break;
+    case "3.10": $nameday = "Raimo";
+    break;
+    case "4.10": $nameday = "Saija, Saila";
+    break;
+    case "5.10": $nameday = "Inkeri, Inka";
+    break;
+    case "6.10": $nameday = "Pinja, Minttu";
+    break;
+    case "7.10": $nameday = "Pirkko, Pirjo, Piritta, Pirita";
+    break;
+    case "8.10": $nameday = "Hilja";
+    break;
+    case "9.10": $nameday = "Ilona";
+    break;
+    case "10.10": $nameday = "Aleksi, Aleksis";
+    break;
+    case "11.10": $nameday = "Otso, Ohto";
+    break;
+    case "12.10": $nameday = "Aarre, Aarto";
+    break;
+    case "13.10": $nameday = "Taina, Tanja, Taija";
+    break;
+    case "14.10": $nameday = "Elsa, Else, Elsi";
+    break;
+    case "15.10": $nameday = "Helvi, Heta";
+    break;
+    case "16.10": $nameday = "Sirkka, Sirkku";
+    break;
+    case "17.10": $nameday = "Saana, Saini";
+    break;
+    case "18.10": $nameday = "Satu, Säde";
+    break;
+    case "19.10": $nameday = "Uljas";
+    break;
+    case "20.10": $nameday = "Kasperi, Kauno";
+    break;
+    case "21.10": $nameday = "Ursula";
+    break;
+    case "22.10": $nameday = "Anja, Anita, Anniina";
+    break;
+    case "23.10": $nameday = "Severi";
+    break;
+    case "24.10": $nameday = "Rasmus, Asmo";
+    break;
+    case "25.10": $nameday = "Sointu";
+    break;
+    case "26.10": $nameday = "Niina, Nina, Amanda";
+    break;
+    case "27.10": $nameday = "Helli, Hellin, Hellä";
+    break;
+    case "28.10": $nameday = "Simo";
+    break;
+    case "29.10": $nameday = "Alfred, Urmas";
+    break;
+    case "30.10": $nameday = "Eila";
+    break;
+    case "31.10": $nameday = "Arto, Arttu, Artturi";
+    break;
+    case "1.11": $nameday = "Pyry, Lyly";
+    break;
+    case "2.11": $nameday = "Topi, Topias";
+    break;
+    case "3.11": $nameday = "Terho";
+    break;
+    case "4.11": $nameday = "Hertta";
+    break;
+    case "5.11": $nameday = "Reima";
+    break;
+    case "6.11": $nameday = "Kustaa Aadolf";
+    break;
+    case "7.11": $nameday = "Taisto";
+    break;
+    case "8.11": $nameday = "Aatos";
+    break;
+    case "9.11": $nameday = "Teuvo";
+    break;
+    case "10.11": $nameday = "Martti";
+    break;
+    case "11.11": $nameday = "Panu";
+    break;
+    case "12.11": $nameday = "Virpi";
+    break;
+    case "13.11": $nameday = "Kristian, Ano";
+    break;
+    case "14.11": $nameday = "Iiris";
+    break;
+    case "15.11": $nameday = "Janina, Janika, Janita";
+    break;
+    case "16.11": $nameday = "Aarne, Aarno, Aarni";
+    break;
+    case "17.11": $nameday = "Eino, Einari";
+    break;
+    case "18.11": $nameday = "Tenho, Jousia";
+    break;
+    case "19.11": $nameday = "Liisa, Elisa, Eliisa";
+    break;
+    case "20.11": $nameday = "Jari, Jalmari";
+    break;
+    case "21.11": $nameday = "Hilma";
+    break;
+    case "22.11": $nameday = "Silja, Selja";
+    break;
+    case "23.11": $nameday = "Ismo";
+    break;
+    case "24.11": $nameday = "Lempi, Lemmikki, Sivi";
+    break;
+    case "25.11": $nameday = "Katri, Kaija, Katja, Kaisa";
+    break;
+    case "26.11": $nameday = "Sisko";
+    break;
+    case "27.11": $nameday = "Hilkka";
+    break;
+    case "28.11": $nameday = "Heini";
+    break;
+    case "29.11": $nameday = "Aimo";
+    break;
+    case "30.11": $nameday = "Antti, Antero, Atte";
+    break;
+    case "1.12": $nameday = "Oskari";
+    break;
+    case "2.12": $nameday = "Anelma, Unelma";
+    break;
+    case "3.12": $nameday = "Meri, Vellamo";
+    break;
+    case "4.12": $nameday = "Airi, Aira";
+    break;
+    case "5.12": $nameday = "Selma";
+    break;
+    case "6.12": $nameday = "Niilo, Niko, Nikolai, Niklas";
+    break;
+    case "7.12": $nameday = "Sampsa";
+    break;
+    case "8.12": $nameday = "Kyllikki, Kylli";
+    break;
+    case "9.12": $nameday = "Anna, Anne, Anni, Anu";
+    break;
+    case "10.12": $nameday = "Jutta";
+    break;
+    case "11.12": $nameday = "Tatu, Taneli, Daniel";
+    break;
+    case "12.12": $nameday = "Tuovi";
+    break;
+    case "13.12": $nameday = "Seija";
+    break;
+    case "14.12": $nameday = "Jouko";
+    break;
+    case "15.12": $nameday = "Heimo";
+    break;
+    case "16.12": $nameday = "Auli, Aulikki, Aada";
+    break;
+    case "17.12": $nameday = "Raakel";
+    break;
+    case "18.12": $nameday = "Aapo, Rami, Aappo";
+    break;
+    case "19.12": $nameday = "Iiro, Iisakki, Iikka, Isko";
+    break;
+    case "20.12": $nameday = "Benjamin, Kerkko";
+    break;
+    case "21.12": $nameday = "Tuomas, Tomi, Tommi, Tuomo";
+    break;
+    case "22.12": $nameday = "Raafael";
+    break;
+    case "23.12": $nameday = "Senni";
+    break;
+    case "24.12": $nameday = "Aatami, Eeva, Eevi";
+    break;
+    case "25.12": $nameday = "Joulupäivä";
+    break;
+    case "26.12": $nameday = "Tapani, Teppo, Tahvo";
+    break;
+    case "27.12": $nameday = "Hannu, Hannes";
+    break;
+    case "28.12": $nameday = "Piia";
+    break;
+    case "29.12": $nameday = "Rauha";
+    break;
+    case "30.12": $nameday = "Taavetti, Taavi, Daavid";
+    break;
+
+
+    return $nameday;
+  }
+
+	$current_date = date("j.n.Y");
+  $output = array(
+    '#theme' => 'current_date_template',
+    '#type' => 'markup',
+    '#current_date' => $current_date,
+    '#day' => $day,
+    '#nameday' => $nameday,
+  );
+  return $output;
+}
