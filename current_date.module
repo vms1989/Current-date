@@ -75,6 +75,68 @@ function current_date_block() {
   }
 
   switch($nameday) {
+  	case "1.1": $nameday = "Uudenvuodenpäivä";
+    break;
+    case "2.1": $nameday = "Aapeli";
+    break;
+    case "3.1": $nameday = "Elmo, Elmeri, Elmer";
+    break;
+    case "4.1": $nameday = "Ruut";
+    break;
+    case "5.1": $nameday = "Lea, Leea";
+    break;
+    case "6.1": $nameday = "Harri";
+    break;
+    case "7.1": $nameday = "Aku, Aukusti, August";
+    break;
+    case "8.1": $nameday = "Titta, Hilppa";
+    break;
+    case "9.1": $nameday = "Veikko, Veli, Veijo, Veikka";
+    break;
+    case "10.1": $nameday = "Nyyrikki";
+    break;
+    case "11.1": $nameday = "Kari, Karri";
+    break;
+    case "12.1": $nameday = "Toini";
+    break;
+    case "13.1": $nameday = "Nuutti";
+    break;
+    case "14.1": $nameday = "Sakari, Saku";
+    break;
+    case "15.1": $nameday = "Solja";
+    break;
+    case "16.1": $nameday = "Ilmari, Ilmo";
+    break;
+    case "17.1": $nameday = "Toni, Anton, Anttoni, Antto";
+    break;
+    case "18.1": $nameday = "Laura";
+    break;
+    case "19.1": $nameday = "Heikki, Henrik, Henri";
+    break;
+    case "20.1": $nameday = "Henna, Henni, Henriikka";
+    break;
+    case "21.1": $nameday = "Aune, Oona, Netta, Auni";
+    break;
+    case "22.1": $nameday = "Visa";
+    break;
+    case "23.1": $nameday = "Enni, Eine, Eini";
+    break;
+    case "24.1": $nameday = "Senja";
+    break;
+    case "25.1": $nameday = "Paavo, Pauli, Paul";
+    break;
+    case "26.1": $nameday = "Joonatan";
+    break;
+    case "27.1": $nameday = "Viljo";
+    break;
+    case "28.1": $nameday = "Kalle, Kaarlo, Kaarle";
+    break;
+    case "29.1": $nameday = "Valtteri";
+    break;
+    case "30.1": $nameday = "Irja";
+    break;
+    case "31.1": $nameday = "Alli";
+    break;
     case "1.7": $nameday = "Aaro, Aaron";
     break;
     case "2.7": $nameday = "Maria, Maija, Mari, Meeri";
@@ -440,6 +502,8 @@ function current_date_block() {
     case "29.12": $nameday = "Rauha";
     break;
     case "30.12": $nameday = "Taavetti, Taavi, Daavid";
+    break;
+    case "31.12": $nameday = "Sylvester, Silvo";
     break;
 
 
